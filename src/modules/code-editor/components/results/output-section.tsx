@@ -8,10 +8,9 @@ type Props = {
     label: string;
     value: string;
     diff: DiffValue;
-    status: string;
 };
 
-export const OutputResultSection = ({ label, value, diff, status }: Props) => {
+export const OutputResultSection = ({ label, value, diff }: Props) => {
     return (
         <div>
             <h3 className="text-muted-foreground mb-2 text-xs font-medium capitalize">

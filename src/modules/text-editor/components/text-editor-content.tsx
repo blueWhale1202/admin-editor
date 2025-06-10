@@ -33,7 +33,9 @@ type Props = {
 };
 
 export const TextEditorContent = ({ editable }: Props) => {
-    const liveblocks = useLiveblocksExtension();
+    const liveblocks = useLiveblocksExtension({
+        offlineSupport_experimental: true,
+    });
     const extensions = [...defaultExtensions, slashCommand, liveblocks];
 
     const [openAI, setOpenAI] = useState(false);
@@ -77,7 +79,7 @@ export const TextEditorContent = ({ editable }: Props) => {
                                         moved,
                                         uploadImageFn,
                                     ),
-                                handleTextInput: updateDocumentState,
+                                // handleTextInput: updateDocumentState,
 
                                 attributes: {
                                     class: "prose dark:prose-invert prose-headings:font-title font-default focus:outline-none max-w-full ",
