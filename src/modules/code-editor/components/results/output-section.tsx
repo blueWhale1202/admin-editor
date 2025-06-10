@@ -2,7 +2,7 @@ import { ButtonCopy } from "@/components/button-copy";
 import { firaCode } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { DiffValue } from "../../types";
-import { HighlightContent } from "./highlight-content";
+import { HighlightContent } from "../highlight-content";
 
 type Props = {
     label: string;
