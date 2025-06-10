@@ -1,3 +1,5 @@
+import { firaCode } from "@/lib/font";
+import { cn } from "@/lib/utils";
 import { memo } from "react";
 import Markdown from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -20,11 +22,15 @@ export const MarkdownHighlighter = memo(({ content }: Props) => {
                             PreTag="div"
                             language={match[1]}
                             {...props}
+                            className={firaCode.className}
                         >
                             {String(children).replace(/\n$/, "")}
                         </SyntaxHighlighter>
                     ) : (
-                        <code className={className} {...props}>
+                        <code
+                            className={cn(className, firaCode.className)}
+                            {...props}
+                        >
                             {children}
                         </code>
                     );
