@@ -4,6 +4,7 @@ import { Command, CommandInput } from "@/components/ui/command";
 
 import CrazySpinner from "@/components/icons/crazy-spinner";
 import Magic from "@/components/icons/magic";
+import { MemoizedMarkdown } from "@/components/memoized-markdown";
 import { Button } from "@/components/ui/button";
 import ResizableScrollArea from "@/modules/text-editor/components/resizable-scroll-area";
 import { useCompletion } from "@ai-sdk/react";
@@ -11,7 +12,6 @@ import { ArrowUp } from "lucide-react";
 import { addAIHighlight, useEditor } from "novel";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { MarkdownWrapper } from "../markdown-wrapper";
 import { AICompletionCommands } from "./ai-completion-command";
 import { AISelectorCommands } from "./ai-selector-commands";
 
@@ -36,7 +36,7 @@ export function AISelector({ onOpenChange }: Props) {
     }, [editor]);
 
     const { completion, complete, isLoading } = useCompletion({
-        // id: "novel",
+        id: "novel",
         api: "/api/generate",
         onResponse: (response) => {
             if (response.status === 429) {
@@ -83,7 +83,14 @@ export function AISelector({ onOpenChange }: Props) {
                 <ResizableScrollArea height={300} minWidth={350} maxWidth={600}>
                     <div className="w-full overflow-hidden p-2 px-4">
                         <div className="prose dark:prose-invert prose-sm overflow-wrap-anywhere w-full max-w-none break-words">
-                            <MarkdownWrapper>{completion}</MarkdownWrapper>
+                            <div className="w-full overflow-hidden p-2 px-4">
+                                <div className="prose dark:prose-invert prose-sm markdown-wrap w-full max-w-none [&_pre]:bg-transparent [&_pre]:p-0 [&_pre>div]:!p-4">
+                                    <MemoizedMarkdown
+                                        id="novel"
+                                        content={completion}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </ResizableScrollArea>
