@@ -1,35 +1,102 @@
-# CodeQuest: Interactive Coding Challenge Platform
+# CodeQuest – Real-Time Collaborative Algorithm Learning Platform
 
-> "CodeQuest empowers programming learners and educators with a modern, collaborative, and AI-assisted learning experience."
+**CodeQuest** is an end-to-end platform designed to transform algorithm learning into an interactive, visual, and collaborative experience. Unlike traditional platforms like LeetCode, CodeQuest is built for both learners and educators to co-create and customize programming challenges, visualize ideas, and safely execute user-submitted code across multiple languages.
 
-## Features
+---
 
-- **Rich Problem Authoring**: Use canvas, block-based rich text, and AI tools to write and format custom algorithmic problems.
-- **Multi-language Code Execution**: Supports over 60 programming languages via a self-hosted Judge0 backend.
-- **AI Integration (OpenAI)**: Automatically generate problem descriptions, solutions, and explanations in LeetCode style.
-- **Real-time Collaboration**: Edit documents simultaneously with live cursor, inline comments, and online status indicators.
-- **Document & Problem Management**: Group documents, manage permissions, publish problems, and track user progress.
-- **Personalized Practice**: Customize test cases, track progress, and receive AI-driven problem recommendations.
-- **Contest Mode**: Organize programming contests with scoring, time constraints, and leaderboards.
+## 💡 Problem Statement
 
-## Tech Stack
+Modern algorithm platforms focus heavily on individual problem-solving with minimal support for visual content, real-time teamwork, or custom test configurations. Educators struggle to customize content, and learners face limitations when collaborating or working offline.
 
-- **Frontend**: Next.js 15 (App Router, Server Actions), TailwindCSS, Shadcn/UI
-- **Editor**:
+---
 
-    - Rich text: Novel (ProseMirror-based)
-    - Code: Monaco Editor (VSCode-like)
-    - Canvas: Tldraw for visual problem illustrations
+## 🚀 What CodeQuest Solves
 
-- **Realtime**: Convex (realtime DB + serverless functions), Liveblocks (cursor sync, presence)
-- **Authentication**: Clerk (email, OAuth, Magic Link, role-based access)
-- **Execution Engine**: Judge0 (self-hosted, sandboxed, multi-language)
-- **AI Services**: OpenAI API (problem generation, text proofreading, simplification)
+### ✔️ Visual + Modular Problem Authoring
 
-## System Architecture
+* Compose problems using draggable blocks: problem text, code editor, canvas, test cases.
+* Embed rich media, input constraints, and Markdown-powered formatting.
 
-- **Frontend**: SSR/CSR hybrid with Server Actions
-- **Backend**: Convex (TypeScript functions and realtime DB)
-- **Compiler Sandbox**: Dockerized Judge0 for running and evaluating user code
-- **Authentication Layer**: Clerk for session management and access control
-- **Realtime Sync**: Liveblocks + Convex for concurrent editing and collaboration
+### ✔️ AI-Powered Authoring & Guidance
+
+* Use OpenAI GPT-4 to auto-generate problem statements, solutions, and step-by-step explanations.
+* Rephrase unclear text and provide real-time hints to learners.
+
+### ✔️ Real-Time + Offline Collaboration
+
+* Built with **Yjs** CRDT and **IndexedDB** for real-time editing and offline-first experience.
+* Features live cursors, comments, mentions, and thread-based discussions.
+
+### ✔️ Transparent & Secure Code Execution
+
+* Custom-built execution system with:
+
+  * **Isolate** sandbox
+  * Queue-based workers
+  * Compiled/interpreted language support (Python, C++, Java, JS...)
+  * Resource control (CPU, RAM, Timeout)
+
+### ✔️ Extensible Architecture
+
+* All modules communicate via a unified event bus: canvas, editor, AI prompts, runner.
+* Designed for future add-ons like grading analytics, contest modes, and student progress tracking.
+
+---
+
+## 🛋️ User Value Delivered
+
+| Stakeholder      | Value                                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------------- |
+| **Learners**     | Run code, create test cases, get AI help, collaborate and sync work offline               |
+| **Educators**    | Author visual & interactive problems, use AI to scaffold, organize collaborative sessions |
+| **Institutions** | Deploy an extensible platform with visibility, auditability, and high security            |
+
+---
+
+## 🧱 System Architecture
+
+### Real-Time Collaboration Flow
+
+![Collab Data Flow](https://github.com/user-attachments/assets/49692413-24aa-45e7-8a17-4a595b19b084)
+
+
+* Yjs + IndexedDB enable seamless syncing and offline editing.
+* Ensures consistency across collaborators even with unstable connectivity.
+
+### Code Execution System
+
+![Code Execution System](https://github.com/user-attachments/assets/3dd5ab6e-bebf-44a2-a804-990e37b917be)
+
+* Submissions are stored and queued asynchronously.
+* Execution is handled by workers using **Isolate** inside secure sandboxes.
+* Supports both interpreted (JS, Python) and compiled (C++, Java) code.
+
+### Sequence Diagram for Submission Lifecycle
+
+![Execution Sequence](https://github.com/user-attachments/assets/63b1ca58-cc12-4219-80c1-5f8b85171302)
+
+* From user submission ➔ sandbox initialization ➔ code compile/run ➔ results returned.
+* Clean-up and result parsing ensure safe, traceable execution.
+
+---
+
+## 🔧 Tech Stack Summary
+
+* **Frontend**: Next.js 15 (App Router, Server Actions), TailwindCSS, Shadcn UI
+* **Collab Engine**: Yjs + IndexedDB (CRDT-based)
+* **Code Execution**: Self-hosted sandbox with Isolate, queue worker system
+* **Backend**: Convex (Realtime BaaS for document and access control)
+* **AI Integration**: OpenAI GPT-4 for explanation, generation, feedback
+* **Authentication**: Clerk.dev (Role-based access)
+
+---
+
+## 📆 Development Methodology
+
+* 8 sprint cycles with continuous testing and design iteration.
+* Mid-project pivot to remove Piston API and build in-house runner using Isolate.
+* Emphasis on resilience, modularity, and extensibility.
+
+---
+
+> CodeQuest bridges the gap between passive problem-solving and active, visual, collaborative learning in computer science education.
