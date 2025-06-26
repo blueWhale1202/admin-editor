@@ -4,30 +4,30 @@
 
 ---
 
-## 💡 Problem Statement
+## Problem Statement
 
 Modern algorithm platforms focus heavily on individual problem-solving with minimal support for visual content, real-time teamwork, or custom test configurations. Educators struggle to customize content, and learners face limitations when collaborating or working offline.
 
 ---
 
-## 🚀 What CodeQuest Solves
+## What CodeQuest Solves
 
-### ✔️ Visual + Modular Problem Authoring
+### Visual + Modular Problem Authoring
 
 * Compose problems using draggable blocks: problem text, code editor, canvas, test cases.
 * Embed rich media, input constraints, and Markdown-powered formatting.
 
-### ✔️ AI-Powered Authoring & Guidance
+### AI-Powered Authoring & Guidance
 
 * Use OpenAI GPT-4 to auto-generate problem statements, solutions, and step-by-step explanations.
 * Rephrase unclear text and provide real-time hints to learners.
 
-### ✔️ Real-Time + Offline Collaboration
+### Real-Time + Offline Collaboration
 
 * Built with **Yjs** CRDT and **IndexedDB** for real-time editing and offline-first experience.
 * Features live cursors, comments, mentions, and thread-based discussions.
 
-### ✔️ Transparent & Secure Code Execution
+### Transparent & Secure Code Execution
 
 * Custom-built execution system with:
 
@@ -36,14 +36,14 @@ Modern algorithm platforms focus heavily on individual problem-solving with mini
   * Compiled/interpreted language support (Python, C++, Java, JS...)
   * Resource control (CPU, RAM, Timeout)
 
-### ✔️ Extensible Architecture
+### Extensible Architecture
 
 * All modules communicate via a unified event bus: canvas, editor, AI prompts, runner.
 * Designed for future add-ons like grading analytics, contest modes, and student progress tracking.
 
 ---
 
-## 🛋️ User Value Delivered
+## User Value Delivered
 
 | Stakeholder      | Value                                                                                     |
 | ---------------- | ----------------------------------------------------------------------------------------- |
@@ -53,7 +53,7 @@ Modern algorithm platforms focus heavily on individual problem-solving with mini
 
 ---
 
-## 🧱 System Architecture
+## System Architecture
 
 ### Real-Time Collaboration Flow
 
@@ -79,7 +79,7 @@ Modern algorithm platforms focus heavily on individual problem-solving with mini
 
 ---
 
-## 🔧 Tech Stack Summary
+## Tech Stack Summary
 
 * **Frontend**: Next.js 15 (App Router, Server Actions), TailwindCSS, Shadcn UI
 * **Collab Engine**: Yjs + IndexedDB (CRDT-based)
@@ -90,7 +90,7 @@ Modern algorithm platforms focus heavily on individual problem-solving with mini
 
 ---
 
-## 📆 Development Methodology
+## Development Methodology
 
 * 8 sprint cycles with continuous testing and design iteration.
 * Mid-project pivot to remove Piston API and build in-house runner using Isolate.
