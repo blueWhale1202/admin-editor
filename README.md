@@ -57,15 +57,14 @@ Modern algorithm platforms focus heavily on individual problem-solving with mini
 
 ### Real-Time Collaboration Flow
 
-![Collab Data Flow](https://github.com/user-attachments/assets/49692413-24aa-45e7-8a17-4a595b19b084)
-
+![Collab Data Flow](https://github.com/user-attachments/assets/15d962ee-9f15-402d-a69d-2101d787b209)
 
 * Yjs + IndexedDB enable seamless syncing and offline editing.
 * Ensures consistency across collaborators even with unstable connectivity.
 
 ### Code Execution System
 
-![Code Execution System](https://github.com/user-attachments/assets/3dd5ab6e-bebf-44a2-a804-990e37b917be)
+![Code Execution System](https://github.com/user-attachments/assets/34e34be0-63c1-4eb0-bc5f-1d2c80467bab)
 
 * Submissions are stored and queued asynchronously.
 * Execution is handled by workers using **Isolate** inside secure sandboxes.
